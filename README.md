@@ -1,14 +1,16 @@
 # QuizProjJavascript
 
-- My motivation is to create a quiz that I can later utilize and update for my JavaScript journey, and learn more about the methods,events,concepts that I have studied so far.
+- My motivation is to create a quiz that I can later utilize and update for my JavaScript journey, and learn more about the methods,events,concepts that I have studied so far. I can also make updates to the project and utilize it for future use.
 - my goal is more so understand the syntax of javascript, and properly utilizing it in a quiz game.
 - This will help anything me create a quiz by utilzing timer intervals, JSON to convert strings in my script, understanding time intervals, apply styling with js versus css, and callbacks.
-- I learned more a lot about setting intervals and using functions in other functions (callbacks), JSON stringify, saving info in local storage.
+- I learned more a lot about setting intervals and using functions in other functions (callbacks), JSON stringify, saving info in local storage. adjusting time intervals, and setting proper arguments for my page to run properly, utilizing console.log statements to isolate and debug issues. 
 
 
 
     ```md
-    ![ScreenShot of Project](assets/images/ScreenshotMyPortfolio.png)
+    ![Link to Page](https://somphangchanleuxay.github.io/QuizProjJavascript/)
+    ![Link to Github Project](https://github.com/somphangchanleuxay/QuizProjJavascript)
+    ![ScreenShot of Project](/assets/images/Screenshot%20(9).png)
     ```
 
 
