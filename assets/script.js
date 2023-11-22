@@ -235,16 +235,20 @@ function startQuiz() {
 }
 
 function startTimer() {
-    timer = setInterval(function () {
-        timerContainer.textContent = timeLeft + ' seconds';
+    var startTime = Date.now();
 
-        if (timeLeft <= 0) {
+    timer = setInterval(function () {
+        var currentTime = Date.now();
+        var elapsedSeconds = Math.floor((currentTime - startTime) / 1000);
+        var remainingTime = Math.max(0, timeLeft - elapsedSeconds);
+
+        timerContainer.textContent = remainingTime + '';
+
+        if (remainingTime <= 0) {
             clearInterval(timer);
             endQuiz("You Lose!");
-        } else {
-            timeLeft--;
         }
-    }, 1000);
+    }, 100);
 }
 
 function showQuestion(questionData) {
@@ -280,11 +284,12 @@ function selectAnswer(answer) {
 
 
 function nextQuestion() {
-    clearInterval(timer);
     currentQuestionIndex++;
+
     if (currentQuestionIndex < quizData.length) {
         showQuestion(quizData[currentQuestionIndex]);
-        startTimer();
+        clearInterval(timer);
+        startTimer(); 
     } else {
         endQuiz("Quiz complete!");
     }
@@ -343,18 +348,24 @@ function showQuizButtons() {
 
 function addTime(seconds) {
     timeLeft += seconds;
-    score += 1000 * seconds; 
+    score += 1000 * seconds;
 }
+
 function subtractTime(seconds) {
     timeLeft = Math.max(0, timeLeft - seconds);
 }
 
 function endQuiz(message) {
-    if (!quizEnded && currentQuestionIndex === quizData.length && !promptShown) {
+    if (!promptShown) {
         quizEnded = true;
         promptShown = true;
         clearInterval(timer);
-        hideQuiz();  
+        hideQuiz();
+
+        if (!quizEnded) {
+            saveScoreAndInitials();
+        }
+
         showResult(message);
     }
 }
@@ -364,7 +375,7 @@ function showResult(message) {
     resultMessage.textContent = message;
     scoreMessage.textContent = `Your score: ${score}`;
 
-    if (message === "You Lose!") {
+    if (message.includes("Out of time")) {
         initialsContainer.classList.add('hide');
     } else {
         initialsContainer.classList.remove('hide');
