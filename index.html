@@ -1,21 +1,45 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="assets/stylesheet.css">
     <title>Javascript Quiz Project</title>
 </head>
+
 <body>
     <main id="quiz-container">
         <div id="question-container"></div>
         <div id="answer-buttons" class="btn-container"></div>
-        <button id="start-button" class="strtbutton">Start Game</button>
-        <button id="next-button" class="btn">Next</button>
-      
+    </main>
+    
+    <div id="start-container">
+        <button id="start-button" class="strtbutton" onclick="startQuiz()">Start Game</button>
+    </div>
+    <button id="next-button" class="btn hide" onclick="nextQuestion()">Next</button>
+    
+    <div id="timer-container">
+        <p id="timer">Timer: <span id="timer-countdown">20</span> seconds</p>
+    </div>
+
+</div>
+<div id="result-container" class="hide">
+    <p id="result-message"></p>
+    <p id="score-message"></p>
+    <div id="initials-container" class="hide">
+        <label for="initials">Enter your initials:</label>
+        <input type="text" id="initials" maxlength="3">
+        <button id="save-score" class="savescorebutton" onclick="saveScore()">Save Score</button>
+    </div>
+
+
+    <div id="saved-scores">
+        <h2>Saved Scores</h2>
+        <ul id="scores-list"></ul>
     </div>
 
     <script src="assets/script.js"></script>
-    
 </body>
+
 </html>
